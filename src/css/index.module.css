@@ -1,0 +1,28 @@
+.wrapper {
+  min-height: 100dvh;
+  padding: 40px 20px 20px;
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 30px 10px;
+  }
+}
+
+.container{
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.controls{
+  margin-bottom: 20px;
+}
+
+.controls .filter{
+  display: block;
+  margin-left: auto;
+}
+
+.container .lastQuantity{
+  margin-bottom: 25px;
+}
