@@ -1,0 +1,176 @@
+$bg-dark: #242731;
+$bg-coral: #FF3459;
+$bg-dark-purple: #332F65;
+$bg-light-purple: #4252D1;
+$bg-input-dark:#272D3D;
+
+
+$text-white: #fff;
+$text-coral: #FF3459;
+$text-purple: #4252D1;
+$text-gray-rgb: rgba(255, 255, 255, 0.50);
+$text-gray-hex: #D7D7D7;
+$text-error: #ff3333;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $bg-dark;
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+  color: #fff;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+}
+
+[class*="__container"] {
+  max-width: 1040px;
+  width: 100%;
+  padding: 0 56px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  [class*="__container"] {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  [class*="__container"] {
+    padding: 0 16px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.popup-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: $bg-dark;
+  transition: 0.3s opacity, 0.3s visibility;
+}
+
+.popup-loader h3{
+  display: none;
+}
+
+.popup-loader:before {
+  content: "";
+
+  width: 75px;
+  height: 75px;
+
+  border: 7px solid white;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: loading 2.5s linear infinite;
+}
+
+.popup-loader_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-loader_error h3{
+  display: block;
+  max-width: 480px;
+
+  font-size: 1.875rem;
+  text-align: center;
+}
+
+.popup-loader_error:before{
+  display: none;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper__small-shadow {
+  top: -70px;
+  left: -97px;
+  z-index: -1;
+
+  width: 399.008px;
+  height: 400.311px;
+
+  opacity: 0.5;
+}
+
+.wrapper__big-shadow {
+  top: -316px;
+  right: -409px;
+  z-index: -1;
+
+  width: 790.649px;
+  height: 793.233px;
+
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .wrapper__big-shadow {
+    top: auto;
+    bottom: -316px;
+  }
+}
+
+@media (max-width: 576px) {
+  .popup-loader_error h3{
+    font-size: 1.5rem;
+  }
+
+  .wrapper__small-shadow {
+    display: none;
+  }
+
+  .wrapper__big-shadow {
+    bottom: -323px;
+    right: -401px;
+
+    width: 912px;
+    height: 912px;
+
+    opacity: 1;
+    -webkit-filter: blur(250px);
+    filter: blur(250px);
+  }
+}

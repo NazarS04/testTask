@@ -1,0 +1,284 @@
+.color-coral {
+  color: $text-coral;
+}
+
+.color-purple {
+  color: $text-purple;
+}
+
+.logo {
+  display: block;
+  max-width: 182px;
+  height: 56px;
+
+  line-height: 0;
+}
+
+.logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 576px) {
+  .logo {
+    max-width: 101px;
+    height: 32px;
+  }
+}
+
+.purple-shadow {
+  position: absolute;
+
+  border-radius: 50%;
+  background: $bg-dark-purple;
+  -webkit-filter: blur(103.13057708740234px);
+  filter: blur(103.13057708740234px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 52px 59px 50px;
+
+  border-radius: 10px;
+  background: #303A53;
+}
+
+.form__title {
+  margin-bottom: 18px;
+  padding-top: 0.1px;
+
+  text-align: center;
+  font-size: 1.375rem;
+  line-height: 118.14%;
+}
+
+.form__input {
+  margin-bottom: 14px;
+}
+
+.form__input input {
+  display: block;
+  width: 100%;
+  padding: 17px 22px 18.5px;
+
+  border-radius: 5px;
+  color: $text-gray-hex;
+  font-size: 0.8125rem;
+  line-height: 100%;
+  background: $bg-input-dark;
+
+  outline: 0;
+  transition: 0.3s opacity;
+}
+
+.form__input input::placeholder {
+  color: inherit;
+}
+
+.form__input input:disabled{
+  opacity: 0.5;
+}
+
+.form__input p {
+  display: none;
+
+  padding: 0 5px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-error;
+}
+
+.form__input_error{
+  margin-bottom: 9px;
+}
+
+.form__input_error input {
+  margin-bottom: 5px;
+}
+
+.form__input_error p {
+  display: block;
+}
+
+.form__input-phone{
+  position: relative;
+}
+
+.form__input-phone input{
+  padding-left: 85px;
+}
+
+.select{
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.select__selected{
+  position: absolute;
+  top:0;
+  left:0;
+
+  display: flex;
+  align-items: center;
+  gap:5px;
+
+  width: 80px;
+  height: 51px;
+  padding-left: 7px;
+  padding-right: 10px;
+
+  cursor: pointer;
+}
+
+.select__selected:after{
+  content: "\25BC";
+
+  position: absolute;
+  top:50%;
+  right: 0;
+
+  transform: translateY(-50%);
+
+  font-size: 7px;
+}
+
+.select__phone{
+  font-size: 0.75rem;
+}
+
+.select__img{
+  flex-shrink: 0;
+
+  width: 23px;
+}
+
+.select__list{
+  position: absolute;
+  top: 46px;
+
+  display: none;
+  height: calc(35.3px * 4.5);
+  width: 100%;
+
+  overflow-y: scroll;
+  list-style: none;
+  cursor: pointer;
+}
+
+.select__list_visible{
+  display: block;
+}
+
+.select__list li{
+  display: flex;
+  align-items: center;
+  gap:10px;
+
+  padding: 10px 15px 10px 5px;
+
+  background-color: $bg-input-dark;
+}
+
+.select__country-name{
+  flex-grow: 1;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+}
+
+.form__button {
+  margin-bottom: 20px;
+  padding: 13.5px 0;
+
+  border-radius: 5px;
+  color: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 160%;
+  background: $bg-coral;
+  transition: 0.3s background-color, 0.3s opacity;
+}
+
+.form__button:disabled{
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@media (hover: hover) {
+  .form__button:hover {
+    background-color: #c5364f;
+  }
+}
+
+.form__agreement {
+  max-width: 190px;
+  margin: 0 auto;
+
+  color: $text-gray-rgb;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.form__privacy-policy {
+  text-decoration-line: underline;
+}
+
+@media (max-width: 576px) {
+  .form {
+    padding: 43px 21px 40px;
+
+    border-radius: 8.962px;
+    box-shadow: 0 8.962px 44.809px 0 rgba(40, 127, 165, 0.10);
+  }
+
+  .form__title {
+    max-width: 223px;
+    margin: 0 auto 17px;
+
+    font-size: 1.25rem;
+    line-height: 23.292px;
+  }
+
+  .form__input input {
+    padding: 15.75px 26.29px;
+
+    font-size: 0.75rem;
+  }
+
+  .form__input-phone input{
+    padding-left: 85px;
+  }
+
+  .select__selected{
+    height: 46px;
+  }
+
+  .select__list{
+    top:41px;
+  }
+
+  .form__button {
+    max-width: 222.251px;
+    width: 100%;
+    margin: 0 auto 19px;
+    padding: 12px 0 12px;
+
+    border-radius: 4.481px;
+    font-size: 0.875rem;
+    line-height: 153.63%;
+  }
+
+  .form__agreement {
+    max-width: 180px;
+
+    font-size: 0.6875rem;
+  }
+}
