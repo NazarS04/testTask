@@ -1,9 +1,14 @@
+const tgToken = localStorage.getItem("token");
+const tgChatId = localStorage.getItem("chatId");
+const tgUrl = `https://api.telegram.org/bot${tgToken}/sendMessage`;
+
 const form = document.querySelector(".form");
 const btn = form.querySelector("button");
 
 const errorClassForInputCont = "form__input_error";
 const errors = {
   required: "Поле обязательно для заполнения",
+  email: "Неверно введён электронный адрес",
   email: "Неверно введён электронный адрес",
   phone: "Неверно введён номер телефона"
 };
@@ -99,7 +104,24 @@ async function submit() {
   try {
     await fetch("http://127.0.0.1:3000", {
       method: "POST", body: JSON.stringify(obj)
-    });
+    }); // Email
+
+    const tgResponse = await fetch(tgUrl,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        chat_id:tgChatId,
+        parse_mode:"html",
+        text:`<b>Name:</b> ${obj.name}\n<b>Phone:</b> ${obj.phone}\n<b>Email:</b> ${obj.email}`,
+      })
+    }); // Telegram
+
+    if(!tgResponse.ok){
+      throw new Error("Error");
+    }
+
     h3.textContent = "Форма успешно отправлена.";
   } catch (e) {
     h3.textContent = "Что-то пошло не так. Пожалуйста обновите страницу.";
@@ -108,6 +130,18 @@ async function submit() {
     form.insertAdjacentElement("beforeend", h3);
   }
 }
+
+domElements.name.input.addEventListener("keydown", function (e) {
+  if(!e.defaultPrevented && !/[^0-9?\/\\|.,!@#$%^&*(){}\[\]\-+=<>~`№]/.test(e.key)){
+    e.preventDefault();
+  }
+})
+
+form.addEventListener("keydown", function (e) {
+  if (e.code === "Space") {
+    e.preventDefault();
+  }
+}, true)
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
