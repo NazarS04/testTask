@@ -9,7 +9,6 @@ const errorClassForInputCont = "form__input_error";
 const errors = {
   required: "Поле обязательно для заполнения",
   email: "Неверно введён электронный адрес",
-  email: "Неверно введён электронный адрес",
   phone: "Неверно введён номер телефона"
 };
 const domElements = {
